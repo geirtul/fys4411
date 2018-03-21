@@ -4,6 +4,50 @@
 Only $\phi_0(r)$ occupied ($n_0 = 1$). Excellent agreement between $\phi_0(r)$
 and HO ground-state function for all r. (Good check of method for noninteracting bosons.)
 \subsubsection*{Interaction}
-$E/N$ very sensitive to the few high-energy bosons at the edges of the trap.
-These bosons increase the energy significantly, but change $\expect{r^2}$ little.
+Energy per particle, $E/N$, in units of $\hbar\omega_{\perp}$ shows a steep inclination.
+Energies from VMC and Gross-Pitaevskii differ at $N \geq 10^4$. Likely due to excitation of bosons
+above the condensate, which VMC takes into account. This is very likely not relevant for our values
+of $N$.
+\begin{figure}[H]
+\includegraphics[width=0.7\textwidth]{DuBois-E-over-N}
+\caption{$E/N$ vs $N$ from DuBois paper.}
+\end{figure}
+\section*{Morten et al paper}
+\begin{table}[H]
+\caption{Energies in units og $\hbar\omega_{\perp}$ for VMC calculations presentet in table 1. 
+		Scattering length $a = 35a_{Rb} = 0.15155a_{\perp}$,
+		$\lambda = \sqrt{8}$, $N=500$}
+	\begin{tabular}{c|c|c}
+	$E/N$ & $E_{kin}/N$ & $E_{HO}/N$ \\
+	\hline
+	11.12109(14) & 4.21520(24) & 6.90590(19) \\
+\end{tabular}
+\end{table}
+
+Some potentially relevant equations relating the values in the table above:
+\beq
+E_{kin} = \f{\hbar^2}{2m} \int\dd{\vec{r}}|\nabla\Psi(\vec{r})|^2
+\eeq
+
+\beq
+E_{HO} = \f{m}{2}\int \dd{\vec{r}}(\omega^{2}_{\perp}(x^2 + y^2) + \omega^{2}_{z}z^2)|\nabla\Psi(\vec{r})|^2
+\eeq
+
+\beq
+E_1 = \f{2\pi\hbar^2 a}{m}\int \dd{\vec{r}}|\Psi(\vec{r})|^4
+\eeq
+
+\beq
+E_2 = \f{2\pi\hbar^2 a}{m}\f{128}{15}(\f{a^3}{\pi})^{1/4}\int \dd{\vec{r}}|\Psi(\vec{r})|^5
+\eeq
+
+The Virial theorem is used to esablish a relation between the different contributions
+to the energy:
+\beq
+2E_{kin} - 2E_{HO} + 3E_1 + \f{9}{2}E_2 = 0
+\eeq
+which serves as a proof of the numerical accuracy of the solution of the 
+GP equations (Gross-Pitaevskii).
+
+
 
